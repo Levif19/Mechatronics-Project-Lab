@@ -1,0 +1,21 @@
+---
+id: operation
+slug: /operation
+title: 7. Operation & Calibration
+sidebar_position: 7
+---
+
+# Operation & Calibration
+
+This section covers the standard operating procedures for booting, homing, and safely operating the robotic arm.
+
+## 1. Safety First
+* **Emergency Stop (E-Stop):** Explanation of the hardware kill-switch that cuts the 24V line to the Octopus board while keeping the Pi alive.
+* **Pinch Points:** Highlighting dangerous areas around the NEMA 23 base joints.
+
+## 2. Homing & Calibration Procedure
+Since the arm uses slip rings for infinite rotation on certain joints, it lacks hard physical end-stops. 
+* *[Explain your homing sequence here: e.g., using sensorless homing via TMC2209 stall detection, or visual alignment marks]*
+
+## 3. First Movement (Hello World)
+A step-by-step guide to sending the very first G-code or API command to the arm after a fresh boot.

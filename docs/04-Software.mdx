@@ -1,0 +1,26 @@
+---
+id: software
+slug: /software
+title: 4. Software
+sidebar_position: 4
+---
+
+# Software & Control Architecture
+
+## 1. AI-Assisted Programming
+Developing a custom 7-DoF kinematic solver and hardware communication protocol is a massive undertaking. This project heavily utilized AI coding assistants to accelerate boilerplate generation, optimize Python math libraries (like NumPy for matrix transformations), and debug serial communication between the Pi and the Octopus board.
+
+## 2. Defining the Scope
+The software stack is divided into three core responsibilities:
+1. **Kinematic Engine:** Calculating joint angles ($q_1 ... q_7$) for a desired XYZ coordinate.
+2. **Hardware Abstraction:** Translating angles into precise step/dir signals.
+3. **API Layer:** Serving data to the User Interface.
+
+## 3. Programming
+*(Insert code snippets here. Example below)*
+
+```python
+# Example Kinematic Solver initialization
+def calculate_ik(target_pose):
+    # Placeholder for Jacobian transpose or pseudo-inverse logic
+    pass

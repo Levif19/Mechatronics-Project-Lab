@@ -1,0 +1,24 @@
+---
+id: discussions
+slug: /discussions
+title: 8. Discussions
+sidebar_position: 8
+---
+
+# Discussions & Lessons Learned
+
+Building a highly integrated robotic arm rarely goes exactly according to the initial CAD plan. This section serves as a reflection of the build process.
+
+## Challenges Faced
+* **Slip Ring Constraints:** Fitting 28 wires through the base required significant redesigns of the Joint 0 hollow shaft.
+* **Torque vs. Weight:** Balancing the heavy NEMA 23 base motors against the lever-arm effect of the distal NEMA 17s.
+* **EMI Crosstalk:** Initial tests showed jitter on the logic lines due to proximity to the stepper power phases.
+
+## Lessons Learned
+* *[Document what you would do differently (e.g., "Use 24 AWG instead of 22 AWG for easier routing")]*
+* *[Document software epiphanies]*
+
+## Future Improvements
+Looking ahead to "Version 2.0" or community mods:
+* Adding absolute encoders for closed-loop control.
+* Implementing a lighter material (like Carbon Fiber tubes) for the main structural linkages to increase payload capacity.

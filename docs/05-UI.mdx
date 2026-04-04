@@ -1,0 +1,23 @@
+---
+id: ui
+slug: /ui
+title: 5. User Interface
+sidebar_position: 5
+---
+
+# User Interface (UI) & App Development
+
+## 1. Why a Dedicated App?
+While G-code terminals are great for debugging, a 7-DoF arm requires an intuitive control scheme. A dedicated app allows for visual "Digital Twin" manipulation, real-time telemetry monitoring (temperature and current draw), and macro execution without writing raw code.
+
+## 2. UI Design
+The interface was designed with a "dark mode, industrial glass-cockpit" aesthetic. 
+* **Control Panel:** Sliders for manual joint overrides.
+* **Telemetry:** Live graphs reading data from the Octopus shunt resistors.
+
+## 3. Testing
+* *[Document your API endpoint testing here]*
+* *[Document latency tests between the app and the physical arm]*
+
+## 4. Deployment
+The UI is hosted locally on the Raspberry Pi's web server, allowing any device on the local network (tablet, phone, PC) to access the control dashboard via a standard web browser.

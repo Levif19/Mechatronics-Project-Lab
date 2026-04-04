@@ -1,0 +1,58 @@
+---
+id: electronics
+slug: /electronics
+title: 3. Electronics
+sidebar_position: 3
+---
+
+# Electronics & Wiring
+
+## 1. System Architecture: The Hybrid "Master/Slave"
+
+The control system for this 7-DoF robotic arm is built on a hybrid "Master/Slave" architecture. This division of labor is critical for a high-precision robotic system.
+
+* **The Master (Logic & Math):** A **Raspberry Pi 5** handles computationally heavy Inverse Kinematics (IK), trajectory planning, and the hosting of the User Interface.
+* **The Slave (Real-Time Control):** An **Arduino Mega 2560** paired with a **RAMPS 1.6 shield**. The Arduino acts as a dedicated real-time controller.
+* **Why this approach?** An early attempt to wire the stepper drivers directly to the Raspberry Pi 5 was abandoned. Linux is not a real-time operating system; background processes cause micro-stutters ("jitter") in the stepper pulses, which would make the arm move erratically. Furthermore, the Pi uses 3.3V logic, while standard drivers expect 5V logic.
+
+## 2. Component Selection & "The Muscle Division"
+
+Components were selected to create a perfectly balanced payload-to-weight ratio across the arm's seven joints.
+
+### Actuator Strategy
+* **Heavy Lifting (Joints 1 & 2):** High-torque **NEMA 23** steppers are deployed at the Base and Shoulder. *Note: A high-end BLDC GL60 motor was initially considered for the base, but was swapped for a standardized NEMA 23 to simplify the driver ecosystem and maintain a strictly stepper-based, low-cost design.*
+* **Agile Movement (Joints 3-7):** **NEMA 17** steppers are utilized for the distal joints. 
+
+### Power Management
+A **24V 10A (240W)** switching power supply brick was determined to be the ideal power source. Because stepper drivers function similarly to buck converters, the 10A rating provides a massive safety margin for all seven motors, eliminating the need for loud industrial cooling fans on the PSU.
+
+### Driver Ecosystem & Overcoming Limitations
+The RAMPS 1.6 shield only has 5 sockets for standard step-stick drivers, while the arm requires 7. To overcome this:
+1.  **Onboard Drivers (x5):** Used for the smaller NEMA 17 motors.
+2.  **External Drivers (x2 - DM55T):** Used for the two massive NEMA 23 motors. The socket shortage was bypassed by mapping these external drivers to the "hidden" **AUX-4 pins** on the side of the RAMPS board.
+
+*Wiring Note: Integrating external drivers required using a **Common Cathode** wiring method (bridging PUL- and DIR- to Ground on the driver), whereas the RAMPS board handles those negative traces internally for the onboard drivers.*
+
+## 3. Wire Routing & EMI Mitigation
+
+The project's signature feature is the complete elimination of external wiring. This required a highly specific internal routing strategy.
+
+### The "Tapered" Slip Ring Design
+To allow infinite, continuous rotation without wire tangles, a tiered slip ring system is utilized:
+* **Base:** Utilizes a **36-channel** slip ring to accommodate the massive data/power trunk.
+* **Wrist:** Tapers down to a **6-channel** slip ring, passing only the necessary lines to the end-effector.
+
+![Electronics wiring diagram](/img/electronics_diagram.png)
+
+### Pivot: Dropping the Camera
+Initial plans included an integrated computer vision camera at the end-effector. However, running high-frequency data lines alongside 24V stepper power cables inside tightly packed slip rings would have caused massive Electromagnetic Interference (EMI). The camera was subsequently removed from the design, though the option remains to add a wireless camera in the future.
+
+## 4. Engineering Challenges: The "Worst-case Pose"
+
+Mechanical and electronic specifications often clash during edge cases. Mathematical modeling revealed a critical torque limit when the arm is fully extended horizontally (the "worst-case pose").
+
+When the custom planetary gearbox ratio was set at 70:1, calculations showed that **Joint 4 (the Elbow)** was operating at the absolute limit of its capacity.
+* **Required Load:** ~13.994 Nm
+* **Maximum Output:** ~20.58 Nm
+
+**The Solution:** A lightweight 20mm "pancake" NEMA 17 was initially planned for this joint. Mathematical proof demonstrated that this motor would instantly stall under the gravity load. The 20mm motor was relocated to the Wrist (Joint 6), and the Elbow was upgraded to a higher-torque Nema 17 (39mm body height) motor.
