@@ -5,15 +5,14 @@ import rehypeKatex from 'rehype-katex';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Mechatronics Project Engineering',
+  title: 'Mechatronics Project Lab',
   tagline: 'High-precision robot arm with off-the-shelf components',
   favicon: 'img/logo.png',
-
-  url: 'https://your-docusaurus-site.example.com', 
+  url: 'https://mechatronicsprojectlab.com', // Replace with your actual domain
   baseUrl: '/',
-
-  organizationName: 'your-github-username', 
-  projectName: 'Mechatronics-Project-Engineering', 
+  organizationName: 'Levif19', // Replace with your actual GitHub username
+  projectName: 'Mechatronics-Project-Lab', // Note the hyphens!
+  trailingSlash: false, // Add this line! It prevents routing bugs on GitHub Pages
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -59,7 +58,7 @@ const config = {
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'Mechatronics Project Engineering',
+        title: 'Mechatronics Project Lab',
         logo: {
           alt: 'Project Logo',
           src: 'img/logo.png',
