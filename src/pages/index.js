@@ -8,7 +8,7 @@ import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
@@ -35,15 +35,14 @@ function ProjectOverviewVideo() {
         {/* Container to enforce the 16:9 aspect ratio and maximum width */}
         <div style={{ maxWidth: '800px', margin: '0 auto', aspectRatio: '16/9' }}>
           <iframe
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/gRGoBV__nzw"
-            title="7-DoF Robotic Arm Project Overview"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/URDBK6XNZSY"
+            title="7-DoF Robotic Arm Overview"
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            style={{ borderRadius: '10px', boxShadow: '0 4px 8px rgba(0,0,0,0.2)' }}
-          ></iframe>
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen>
+          </iframe>
         </div>
       </div>
     </section>
@@ -51,7 +50,7 @@ function ProjectOverviewVideo() {
 }
 
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`Home | ${siteConfig.title}`}

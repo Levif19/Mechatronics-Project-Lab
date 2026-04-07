@@ -7,7 +7,7 @@ import rehypeKatex from 'rehype-katex';
 const config = {
   title: 'Mechatronics Project Lab',
   tagline: 'High-precision robot arm with off-the-shelf components',
-  favicon: 'img/logo.png',
+  favicon: 'img/logo_2.png',
   url: 'https://mechatronicsprojectlab.com', // Replace with your actual domain
   baseUrl: '/',
   organizationName: 'Levif19', // Replace with your actual GitHub username
@@ -61,7 +61,7 @@ const config = {
         title: 'Mechatronics Project Lab',
         logo: {
           alt: 'Project Logo',
-          src: 'img/logo.png',
+          src: 'img/logo_2.png',
         },
         items: [
           {
@@ -71,7 +71,7 @@ const config = {
             label: 'Build Manual',
           },
           {
-            href: 'https://github.com/your-username/7dof-arm',
+            href: 'https://github.com/Levif19/Mechatronics-Project-Lab',
             label: 'GitHub',
             position: 'right',
           },
@@ -102,16 +102,16 @@ const config = {
             items: [
               {
                 label: 'GitHub Repository',
-                href: 'https://github.com/your-username/7dof-arm',
+                href: 'https://github.com/Levif19/Mechatronics-Project-Lab',
               },
               {
                 label: 'YouTube Series',
-                href: 'https://youtu.be/gRGoBV__nzw', // Replace with your YouTube channel link later
+                href: 'https://www.youtube.com/watch?v=URDBK6XNZSY&t', // Replace with your YouTube channel link later
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} 7-DoF Robotic Arm Project. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Mechatronics Project Lab. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

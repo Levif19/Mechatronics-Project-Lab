@@ -28,3 +28,8 @@
   --ifm-color-primary-lightest:   #39b5e4;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Round the logo */
+.navbar__logo img {
+  border-radius: 50%;
+}
