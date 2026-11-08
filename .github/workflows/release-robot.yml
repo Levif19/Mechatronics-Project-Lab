@@ -1,0 +1,30 @@
+name: Release Robot Hardware
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compress Hardware directory
+        run: |
+          zip -r hardware-release.zip hardware/
+
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: hardware-release.zip
+          draft: false
+          prerelease: false
+          generate_release_notes: true

@@ -1,14 +1,41 @@
-# Dependencies
+# Node.js & Web Dependencies
 /node_modules
-
-# Production
+/web/node_modules
 /build
-
-# Generated files
+/web/build
 .docusaurus
+/web/.docusaurus
 .cache-loader
 
-# Misc
+# Python environments & cache (/software)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+*.venv
+.pytest_cache/
+.coverage
+htmlcov/
+
+# C++ & PlatformIO / Arduino builds (/firmware)
+.pio/
+.pioenvs/
+.piolibdeps/
+*.elf
+*.bin
+*.hex
+*.o
+*.a
+cmake-build-*/
+
+# Miscellaneous & System
 .DS_Store
 .env.local
 .env.development.local
@@ -18,3 +45,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
